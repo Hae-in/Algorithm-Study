@@ -1,14 +1,15 @@
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.IOException;
 
 public class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int N = sc.nextInt();
-        String sNum = sc.next();
-        char[] cNum = sNum.toCharArray();
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        int n = Integer.parseInt(br.readLine());
+        String numbers = br.readLine();
         int sum = 0;
-        for(int i = 0; i < cNum.length; i++){
-            sum += cNum[i] - 48;
+        for (int i = 0; i < n; i++) {
+            sum += numbers.charAt(i) - '0';
         }
         System.out.println(sum);
     }
