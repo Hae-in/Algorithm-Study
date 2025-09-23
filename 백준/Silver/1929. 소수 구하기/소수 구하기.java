@@ -5,20 +5,20 @@ public class Main {
         Scanner sc = new Scanner(System.in);
         int M = sc.nextInt();
         int N = sc.nextInt();
-        int[] A = new int[N + 1];
+        boolean[] isPrime = new boolean[N + 1];
 
         for (int i = 2; i <= N; i++) {
-            A[i] = i;
+            isPrime[i] = true;
         }
         for (int i = 2; i <= Math.sqrt(N); i++) {
-            if (A[i] == 0) continue;
-            for (int j = i + i; j <= N; j = j + i) {
-                A[j] = 0;
+            if (!isPrime[i]) continue;
+            for (int j = i * i; j <= N; j += i) {
+                isPrime[j] = false;
             }
         }
         for (int i = M; i <= N; i++) {
-            if (A[i] != 0) {
-                System.out.println(A[i]);
+            if (isPrime[i]) {
+                System.out.println(i);
             }
         }
     }
