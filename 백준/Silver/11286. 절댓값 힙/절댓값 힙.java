@@ -11,10 +11,10 @@ public class Main {
         PriorityQueue<Integer> pq = new PriorityQueue<>((a, b) -> {
             int absA = Math.abs(a);
             int absB = Math.abs(b);
-            if (absA == absB) {
-                return a - b;
+            if (absA != absB) {
+                return Integer.compare(absA, absB);
             }
-            return absA - absB;
+            return Integer.compare(a, b);
         });
 
         for (int i = 0; i < N; i++) {
